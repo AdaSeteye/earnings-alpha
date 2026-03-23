@@ -1,0 +1,34 @@
+# Backtesting strategy parameters
+
+signal:
+  # Column name for model prediction (e.g. tft_pred_20d, xgb_pred_20d)
+  signal_col: tft_pred_20d
+  long_quantile: 0.8
+  short_quantile: 0.2
+
+portfolio:
+  position_sizing: equal_weight  # or signal_weighted
+  max_position_pct: 0.05
+  rebalance: event_driven  # at each earnings date
+
+costs:
+  transaction_cost_bps: 5
+  slippage_bps: 2
+
+# Performance metrics
+metrics:
+  - sharpe_ratio
+  - max_drawdown
+  - information_coefficient
+  - turnover
+  - sector_exposure
+  - factor_exposure
+
+# Factor neutralisation (Fama-French 5 + momentum)
+factors:
+  - MKT
+  - SMB
+  - HML
+  - RMW
+  - CMA
+  - MOM

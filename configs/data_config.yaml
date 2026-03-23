@@ -1,0 +1,40 @@
+# Data configuration: universe, date ranges, tickers
+
+universe:
+  name: sp500
+  # Use a list of tickers or "sp500" to fetch from Wikipedia
+  ticker_source: sp500
+
+date_range:
+  start: "2013-01-01"
+  end: "2024-12-31"
+
+# Default ranges used in setup (configurable)
+ingestion:
+  transcript_start: "2018-01-01"
+  transcript_end: "2024-12-31"
+  price_lookback_days: 252
+  macro_series:
+    - DGS10          # 10Y Treasury
+    - DGS2           # 2Y Treasury
+    - T10Y2Y         # Yield curve slope
+    - DCOILWTICO     # WTI crude
+    - FEDFUNDS       # Fed funds rate
+    - CPIAUCSL       # CPI
+    - UNRATE         # Unemployment
+    - VIXCLS         # VIX (if available via FRED)
+
+paths:
+  raw_transcripts: "data/raw/transcripts"
+  raw_prices: "data/raw/prices"
+  raw_macro: "data/raw/macro"
+  processed_transcripts: "data/processed/transcripts_parsed"
+  processed_features: "data/processed/features"
+  processed_returns: "data/processed/returns"
+  external_ff5: "data/external/ff5_factors"
+
+edgar:
+  user_agent: "YourCompany research@example.com"
+  rate_limit_delay_seconds: 0.2
+  filing_types:
+    - "8-K"
