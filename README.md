@@ -120,7 +120,7 @@ earnings-alpha/
 
 1. **Clone and enter the project**
    ```bash
-   git clone https://github.com/yourusername/earnings-alpha.git
+   git clone https://github.com/AdaSeteye/earnings-alpha.git
    cd earnings-alpha
    ```
 
